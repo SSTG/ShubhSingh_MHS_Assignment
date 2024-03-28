@@ -33,9 +33,12 @@ public class Paratrooper : MonoBehaviour
     }
     void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.CompareTag("Ground") && !isParachuted)
+        if(other.gameObject.CompareTag("Ground")){
+            if(!isParachuted)
         DeathFunction();
+        isGrounded=true;
        
+    }
     }
     void DeathFunction()
     {

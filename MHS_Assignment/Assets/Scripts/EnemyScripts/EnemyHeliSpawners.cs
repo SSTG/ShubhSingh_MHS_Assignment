@@ -11,10 +11,14 @@ public class EnemyHeliSpawners : Singleton<EnemyHeliSpawners>
     [SerializeField]float verticalOffsetRange;
     //[SerializeField]int poolLimit=20;
     //List<GameObject> enemyHelis;
-    void Start()
+    void OnEnable()
     {
         StartCoroutine("Spawn");
         
+    }
+    void OnDisable()
+    {
+        StopCoroutine("Spawn");
     }
 
     IEnumerator Spawn()

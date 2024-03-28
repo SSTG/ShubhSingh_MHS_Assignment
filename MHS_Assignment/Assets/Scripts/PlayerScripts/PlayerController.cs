@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [Range(0,90)]
     [SerializeField]float turretRotationRadius;
     GameManager gameManager;
-    void Awake()
+    void Start()
     {
         InputManager.OnMovement+=Movement;
         InputManager.OnShootPress+=Shoot;
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     void Movement(float horizontal)
     {
         
-        turretHead.Rotate(0,0,-horizontal*rotationAmount);
+        turretHead.Rotate(0,0,-horizontal*rotationAmount*Time.deltaTime);
         LimitRotation(turretHead.rotation);
         
     }

@@ -25,7 +25,7 @@ public class DeathChecker : MonoBehaviour
         if(paratroopersLanded.Count==4)
         StartCoroutine("TriggerDeathSequence");
     }
-    void ParaTrooperLanding(GameObject gameObject)
+    public void ParaTrooperLanding(GameObject gameObject)
     {
         paratroopersLanded.Add(gameObject);
         Destroy(gameObject.GetComponent<EnemyHealth>());
@@ -33,7 +33,7 @@ public class DeathChecker : MonoBehaviour
     }
     IEnumerator TriggerDeathSequence()
     {
-        gameManager.DestroySpawners();
+        //gameManager.DisableSpawners();
         for(int i=0;i<deathPositions.Length-1;i++)
         {
             paratroopersLanded[i].transform.position=deathPositions[i].position;

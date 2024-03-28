@@ -16,14 +16,15 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]Text highScoreText;
     [SerializeField]GameObject[] spawners;
     EnemyHeliSpawners enemyHeliSpawners;
+    GameObject[] enemies;
     GameObject player;
-    InputManager inputManager;
+    
     public float Score{ get{ return score;} set{ score=value;}}
     void Awake()
     {
-        inputManager=FindObjectOfType<InputManager>();
+        
         score=0;
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
         player=GameObject.FindWithTag("Player");
         PauseGame();
         enemyHeliSpawners=FindObjectOfType<EnemyHeliSpawners>();
@@ -34,17 +35,27 @@ public class GameManager : Singleton<GameManager>
     {
         if((PlayerPrefs.HasKey("HighScore") && PlayerPrefs.GetFloat("HighScore")<=score) || !PlayerPrefs.HasKey("HighScore"))
         PlayerPrefs.SetFloat("HighScore",score);
+        score=0;
         Instantiate(deathVFX,player.transform.position,Quaternion.identity);
-        Destroy(player);
+        //Destroy(player);
         //Destroy(this.gameObject);
-        Destroy(inputManager.gameObject);
+        
        OnDeath?.Invoke();
     }
-    public void DestroySpawners()
+    public void DisableSpawners()
     {
         foreach (GameObject go in spawners)
-        Destroy(go);
-        Destroy(enemyHeliSpawners.gameObject);
+       go.SetActive(false);
+       enemies=GameObject.FindGameObjectsWithTag("Enemy");
+       foreach(GameObject go in enemies)
+       Destroy(go);
+        enemyHeliSpawners.gameObject.SetActive(false);
+    }
+    public void EnableSpawners()
+    {
+        foreach (GameObject go in spawners)
+       go.SetActive(true);
+        enemyHeliSpawners.gameObject.SetActive(true);
     }
     public void LoadLevel(string name)
     {
