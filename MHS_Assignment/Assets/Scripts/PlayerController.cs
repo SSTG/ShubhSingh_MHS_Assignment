@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]GameObject bulletPrefab;
     [SerializeField]float rotationAmount=1f;
     [SerializeField]float bulletForce=10f;
+    [Range(0,90)]
+    [SerializeField]float turretRotationRadius;
     GameManager gameManager;
     void Awake()
     {
@@ -16,7 +18,7 @@ public class PlayerController : MonoBehaviour
         InputManager.OnShootPress+=Shoot;
         gameManager=FindObjectOfType<GameManager>();
         //turretHead=transform.Find("PivotTurret");
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
@@ -36,7 +38,7 @@ public class PlayerController : MonoBehaviour
         Vector3 eulerAngles=rotation.eulerAngles;
         eulerAngles.z=eulerAngles.z>180f ? eulerAngles.z-360 : eulerAngles.z;
         //eulerAngles.z=eulerAngles.z<=-55f ? -55f : eulerAngles.z;
-        eulerAngles.z=Mathf.Clamp(eulerAngles.z,-55f,55f);
+        eulerAngles.z=Mathf.Clamp(eulerAngles.z,-turretRotationRadius,turretRotationRadius);
         turretHead.rotation=Quaternion.Euler(eulerAngles);
 
     }

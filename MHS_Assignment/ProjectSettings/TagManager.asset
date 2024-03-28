@@ -7,16 +7,17 @@ TagManager:
   - Enemy
   - Ground
   - Parachute
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Enemy
   - ParaTroopers
-  - 
+  - Bomb
   - 
   - 
   - 

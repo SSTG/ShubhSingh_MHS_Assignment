@@ -28,6 +28,7 @@ public class DeathChecker : MonoBehaviour
     void ParaTrooperLanding(GameObject gameObject)
     {
         paratroopersLanded.Add(gameObject);
+        Destroy(gameObject.GetComponent<EnemyHealth>());
         gameObject.GetComponent<Paratrooper>().parachute.SetActive(false);
     }
     IEnumerator TriggerDeathSequence()

@@ -14,11 +14,11 @@ public class BulletScript : MonoBehaviour
     }
     void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.CompareTag("Enemy"))
+        if(other.gameObject.GetComponent<EnemyHealth>()!=null)
         other.gameObject.GetComponent<EnemyHealth>().OnDeath();
         if(other.gameObject.CompareTag("Parachute"))
         Destroy(other.gameObject);
-    Destroy(this.gameObject);
+        Destroy(this.gameObject);
 
     // Update is called once per frame
    
