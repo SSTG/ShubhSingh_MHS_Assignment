@@ -8,7 +8,7 @@ public class BulletScript : MonoBehaviour
     GameManager gameManager;
     void Start()
     {
-        Invoke("ResetCountdown" , 2f);
+        Invoke("ResetCountdown" , 2.5f);
        Invoke("DestroyBullet",3.5f);
         gameManager=FindObjectOfType<GameManager>();
         

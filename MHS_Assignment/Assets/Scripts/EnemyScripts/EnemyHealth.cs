@@ -9,11 +9,14 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField]ParticleSystem deathEffect;
     [SerializeField]AudioClip deathSound;
     GameManager gameManager;
+    Transform enemyParent;
     AudioManager audioManager;
     void Start()
     {
         gameManager=FindObjectOfType<GameManager>();
         audioManager=FindObjectOfType<AudioManager>();
+        enemyParent=GameObject.Find("Enemies").transform;
+        transform.parent=enemyParent;
     }
     public void OnDeath()
     {
