@@ -73,8 +73,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 83
       Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
@@ -212,7 +210,7 @@ ScriptsOnlyBuild:
     className: SignalAsset
   - hash:
       serializedVersion: 2
-      Hash: f33fdb1b39710715e848261da5b2a7ae
+      Hash: 8838bb02038706f23adfaa47cbaf2c71
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DeathChecker
@@ -284,7 +282,7 @@ ScriptsOnlyBuild:
     className: TMP_StyleSheet
   - hash:
       serializedVersion: 2
-      Hash: c6243a6777447fa4d8975a1b06f2ae28
+      Hash: 588ec7f676692405ca8350914f19ae8c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -735,4 +733,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/GameScene.unity
-  playerPath: C:/Users/SHUBH/Documents/GitHub/ShubhSingh_MHS_Assignment/Releases/V1.0/MHS_Assignment.exe
+  playerPath: C:/Users/SHUBH/Documents/GitHub/ShubhSingh_MHS_Assignment/Releases/V1.1/MHS_Assignment.exe

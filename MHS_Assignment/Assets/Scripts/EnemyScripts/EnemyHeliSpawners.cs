@@ -9,8 +9,9 @@ public class EnemyHeliSpawners : Singleton<EnemyHeliSpawners>
     [SerializeField]Transform[] spawnLocations;
     [Range(0,3)]
     [SerializeField]float verticalOffsetRange;
-    //[SerializeField]int poolLimit=20;
-    //List<GameObject> enemyHelis;
+    // [SerializeField]int poolLimit=20;
+    // Queue<GameObject> enemyHelis;
+    
     void OnEnable()
     {
         StartCoroutine("Spawn");

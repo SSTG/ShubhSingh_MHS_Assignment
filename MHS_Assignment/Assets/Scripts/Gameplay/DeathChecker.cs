@@ -6,11 +6,12 @@ public class DeathChecker : MonoBehaviour
 {
     // Start is called before the first frame update
    [SerializeField]Transform[] deathPositions;
-   List<GameObject> paratroopersLanded=new List<GameObject>();
+   [HideInInspector]public List<GameObject> paratroopersLanded;
    GameManager gameManager;
     void Start()
     {
         gameManager=FindObjectOfType<GameManager>();
+        List<GameObject> paratroopersLanded=new List<GameObject>();
     }
 
     // Update is called once per frame

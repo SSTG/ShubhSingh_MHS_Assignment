@@ -26,6 +26,12 @@ public class PlayerController : MonoBehaviour
     {
         
     }
+    public void UltimateAbility(DeathChecker deathChecker)
+    {
+        for(int i=0;i<deathChecker.paratroopersLanded.Count;i++)
+        Destroy(deathChecker.paratroopersLanded[i]);
+        deathChecker.paratroopersLanded.Clear();
+    }
     void Movement(float horizontal)
     {
         
