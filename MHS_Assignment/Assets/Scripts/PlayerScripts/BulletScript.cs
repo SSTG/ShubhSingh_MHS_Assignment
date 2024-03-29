@@ -31,6 +31,7 @@ void ResetCountdown()
 {
     gameManager.ultCountDown=0;
     gameManager.ultimateSlider.value=gameManager.ultCountDown;
+    gameManager.ultimateText.text="Ultimate : "+0;
 }
 void DestroyBullet()
 {
