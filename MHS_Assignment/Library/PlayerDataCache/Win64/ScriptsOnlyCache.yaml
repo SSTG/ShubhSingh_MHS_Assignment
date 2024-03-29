@@ -282,7 +282,7 @@ ScriptsOnlyBuild:
     className: TMP_StyleSheet
   - hash:
       serializedVersion: 2
-      Hash: 588ec7f676692405ca8350914f19ae8c
+      Hash: 079a9e341801e5ff47d72acac802bcd3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager

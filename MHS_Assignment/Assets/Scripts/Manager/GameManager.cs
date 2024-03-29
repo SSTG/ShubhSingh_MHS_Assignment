@@ -10,13 +10,19 @@ public class GameManager : Singleton<GameManager>
     public static float score=0;
     public static float highScore;
     public static bool inGame=false;
+    [Tooltip("Event triggered when player dies")]
     public UnityEvent OnDeath;
+    [Header("UI Elements")]
     [SerializeField]Text scoreText;
     public Slider ultimateSlider;
+    public Text ultimateText;
+    [SerializeField]Text highScoreText;
+    [Header("VFX Elements")]
     [SerializeField]ParticleSystem deathVFX;
     [SerializeField]ParticleSystem ultVFX;
-    [SerializeField]Text highScoreText;
+    [Header("SFX Element")]
     [SerializeField]AudioClip ultimateSFX;
+    [Header("References to spawners and deathcheckers(Ground)")]
     [SerializeField]GameObject[] spawners;
     [SerializeField]DeathChecker[] deathCheckers;
     EnemyHeliSpawners enemyHeliSpawners;
@@ -46,6 +52,7 @@ public class GameManager : Singleton<GameManager>
         score=0;
         ultCountDown=0;
         ultimateSlider.value=0;
+        ultimateText.text="";
         Instantiate(deathVFX,player.transform.position,Quaternion.identity);
         //Destroy(player);
         //Destroy(this.gameObject);
@@ -57,7 +64,9 @@ public class GameManager : Singleton<GameManager>
         if(ultCountDown>=5){
         for(int i=0;i<deathCheckers.Length;i++)
         player.GetComponent<PlayerController>().UltimateAbility(deathCheckers[i]);
-        ultCountDown-=5; Debug.Log("Ult");
+        ultCountDown-=5;
+        ultimateSlider.value=ultCountDown%5;
+        ultimateText.text="Ultimate : "+ultCountDown/5;
         audioManager.PlaySFX(ultimateSFX);
         Instantiate(ultVFX,player.transform.position,Quaternion.identity);
     }}

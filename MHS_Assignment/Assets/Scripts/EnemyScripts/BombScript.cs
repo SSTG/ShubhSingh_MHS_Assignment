@@ -26,7 +26,12 @@ public class BombScript : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.CompareTag("Player"))
-        gameManager.DeadFunction();
+        StartCoroutine("Death");
         Destroy(this.gameObject);
+    }
+    IEnumerator Death()
+    {
+        gameManager.DeadFunction();
+        yield return new WaitForSeconds(2f);
     }
 }

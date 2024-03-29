@@ -45,5 +45,6 @@ public class DeathChecker : MonoBehaviour
        
         yield return new WaitForSeconds(1f);
         gameManager.DeadFunction();
+        yield return new WaitForSeconds(2f);
     }
 }

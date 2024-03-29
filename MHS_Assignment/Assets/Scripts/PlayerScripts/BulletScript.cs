@@ -18,7 +18,8 @@ public class BulletScript : MonoBehaviour
         if(other.gameObject.GetComponent<EnemyHealth>()!=null){
         other.gameObject.GetComponent<EnemyHealth>().OnDeath();
         gameManager.ultCountDown++;
-        gameManager.ultimateSlider.value=gameManager.ultCountDown;}
+        gameManager.ultimateSlider.value=gameManager.ultCountDown%5;
+        gameManager.ultimateText.text="Ultimate : "+gameManager.ultCountDown/5;}
         if(other.gameObject.CompareTag("Parachute"))
         Destroy(other.gameObject);
         Destroy(this.gameObject);
@@ -28,7 +29,7 @@ public class BulletScript : MonoBehaviour
 }
 void ResetCountdown()
 {
-gameManager.ultCountDown=0;
+    gameManager.ultCountDown=0;
     gameManager.ultimateSlider.value=gameManager.ultCountDown;
 }
 void DestroyBullet()

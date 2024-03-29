@@ -7,7 +7,9 @@ public class AudioManager : Singleton<AudioManager>
 {
     // Start is called before the first frame update
     [SerializeField]AudioClip backgroundMusic;
+    [Tooltip("The Audio Source that'll play the SFX")]
     [SerializeField]AudioSource sfxSource;
+    [Tooltip("The SFX Clip that'll play when changing SFX volume")]
     [SerializeField]AudioClip sampleSFXClip;
     AudioSource audioSource;
     void Start()
