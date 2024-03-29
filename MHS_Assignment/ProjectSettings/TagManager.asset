@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Parachute
   - FxTemporaire
+  - Bullet
   layers:
   - Default
   - TransparentFX

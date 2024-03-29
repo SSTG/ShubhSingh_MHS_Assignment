@@ -27,6 +27,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]DeathChecker[] deathCheckers;
     EnemyHeliSpawners enemyHeliSpawners;
     GameObject[] enemies;
+    GameObject[] bullets;
     GameObject player;
     AudioManager audioManager;
     [HideInInspector]public int ultCountDown=0;
@@ -49,6 +50,9 @@ public class GameManager : Singleton<GameManager>
     {
         if((PlayerPrefs.HasKey("HighScore") && PlayerPrefs.GetFloat("HighScore")<=score) || !PlayerPrefs.HasKey("HighScore"))
         PlayerPrefs.SetFloat("HighScore",score);
+        bullets=GameObject.FindGameObjectsWithTag("Bullet");
+        foreach(GameObject go in bullets)
+        Destroy(go);
         score=0;
         ultCountDown=0;
         ultimateSlider.value=0;
