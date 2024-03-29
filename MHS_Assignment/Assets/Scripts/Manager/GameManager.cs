@@ -43,6 +43,10 @@ public class GameManager : Singleton<GameManager>
         PauseGame();
         audioManager=FindObjectOfType<AudioManager>();
         enemyHeliSpawners=FindObjectOfType<EnemyHeliSpawners>();
+        
+    }
+    void Start()
+    {
         if(PlayerPrefs.HasKey("HighScore"))
         highScore=PlayerPrefs.GetFloat("HighScore");
     }
